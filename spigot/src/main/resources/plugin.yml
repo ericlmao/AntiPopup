@@ -3,6 +3,8 @@ version: '${version}'
 main: com.github.kaspiandev.antipopup.spigot.AntiPopup
 api-version: 1.17
 load: POSTWORLD
+depend:
+  - packetevents
 softdepend:
   - ProtocolLib
   - ProtocolSupport

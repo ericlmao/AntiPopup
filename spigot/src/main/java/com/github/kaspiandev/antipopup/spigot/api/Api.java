@@ -2,7 +2,6 @@ package com.github.kaspiandev.antipopup.spigot.api;
 
 import com.github.kaspiandev.antipopup.message.ConsoleMessages;
 import com.github.kaspiandev.antipopup.spigot.AntiPopup;
-import com.github.retrooper.packetevents.PacketEvents;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -38,10 +37,8 @@ public class Api {
                         throw new RuntimeException(ex);
                     }
                     ConsoleMessages.log(ConsoleMessages.SETUP_SUCCESS, getLogger()::warning);
-                    AntiPopup.getFoliaLib().getImpl().runLater(() -> {
-                        PacketEvents.getAPI().terminate();
-                        getServer().spigot().restart();
-                    }, time * 50L, TimeUnit.MILLISECONDS);
+                    AntiPopup.getFoliaLib().getImpl().runLater(() -> getServer().spigot().restart(),
+                            time * 50L, TimeUnit.MILLISECONDS);
                 } else if (!silent) {
                     getLogger().info("AntiPopup has been already set up.");
                 }
