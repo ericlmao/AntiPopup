@@ -16,7 +16,6 @@ import com.github.retrooper.packetevents.event.PacketListenerPriority;
 import com.github.retrooper.packetevents.manager.server.ServerManager;
 import com.github.retrooper.packetevents.manager.server.ServerVersion;
 import com.tcoded.folialib.FoliaLib;
-import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SimplePie;
@@ -52,10 +51,6 @@ public final class AntiPopup extends JavaPlugin {
     @Override
     public void onLoad() {
         instance = this;
-        PacketEvents.setAPI(SpigotPacketEventsBuilder.build(this));
-        PacketEvents.getAPI().getSettings().debug(false).checkForUpdates(false);
-        PacketEvents.getAPI().load();
-        getLogger().info("Loaded PacketEvents.");
     }
 
     @Override
@@ -93,8 +88,6 @@ public final class AntiPopup extends JavaPlugin {
         }
 
         PacketEvents.getAPI().getEventManager().registerListener(new PacketEventsListener(spigotPlatform), PacketListenerPriority.LOW);
-        PacketEvents.getAPI().init();
-        getLogger().info("Initiated PacketEvents.");
 
         if (config.isBlockChatReports()
                 && serverManager.getVersion().isOlderThan(ServerVersion.V_1_19_1)) {
@@ -135,11 +128,4 @@ public final class AntiPopup extends JavaPlugin {
             }
         }, 5 * 50L, TimeUnit.MILLISECONDS);
     }
-
-    @Override
-    public void onDisable() {
-        PacketEvents.getAPI().terminate();
-        getLogger().info("Disabled PacketEvents.");
-    }
-
 }
