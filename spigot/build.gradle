@@ -5,8 +5,8 @@ plugins {
 
 repositories {
     maven {
-        name = "devmart-other"
-        url = "https://nexuslite.gcnt.net/repos/other/"
+        name = "tcoded-releases"
+        url = "https://repo.tcoded.com/releases"
     }
 }
 
@@ -19,13 +19,15 @@ dependencies {
 
     implementation "org.bstats:bstats-bukkit:3.0.0"
     implementation "com.github.retrooper:packetevents-spigot:${packetEventsVer}"
-    implementation "com.tcoded:FoliaLib:0.2.3"
+    implementation "com.tcoded:FoliaLib:0.5.1"
 }
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(21))
     }
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 tasks {
