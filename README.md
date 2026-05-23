@@ -1,5 +1,7 @@
-**Notice:** This is an ultra-performance fork of the original AntiPopup project. You can find [builds of the plugin](https://ci.moonrise.gg/job/AntPopup/) on Moonrise CI.
+**Notice:** This is an ultra-performance fork of the original AntiPopup project. 
 
+You can find [builds of the plugin](https://ci.moonrise.gg/job/AntPopup/) on Moonrise CI.
+---
 **For faster updates, priority support and a discord role purchase AntiPopup Pro on Polymart.**  
 Click the button below for more details.
 
